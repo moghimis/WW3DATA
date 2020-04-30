@@ -278,27 +278,27 @@ module WAV
         ! First add Non-standard fields to dictionary
         ! exportable field: wav_x a Non-standard field
 
-        call NUOPC_FieldDictionaryAddEntry("eastward_radiation_stress",  "mx", rc=rc)
-        if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &
-            line=__LINE__, &
-            file=__FILE__)) &
-            return  ! bail out
+!        call NUOPC_FieldDictionaryAddEntry("eastward_wave_radiation_stress",  "mx", rc=rc)
+!        if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &
+!            line=__LINE__, &
+!            file=__FILE__)) &
+!            return  ! bail out
 
-        call NUOPC_FieldDictionaryAddEntry("northward_radiation_stress", "mx", rc=rc)
-        if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &
-            line=__LINE__, &
-            file=__FILE__)) &
-            return  ! bail out
+!        call NUOPC_FieldDictionaryAddEntry("northward_wave_radiation_stress", "mx", rc=rc)
+!        if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &
+!            line=__LINE__, &
+!            file=__FILE__)) &
+!            return  ! bail out
 
-        call NUOPC_FieldDictionaryAddEntry("cross_radiation_stress",    "mx", rc=rc)
-        if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &
-            line=__LINE__, &
-            file=__FILE__)) &
-            return  ! bail out
+!        call NUOPC_FieldDictionaryAddEntry("eastward_northward_wave_radiation_stress",    "mx", rc=rc)
+!        if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &
+!            line=__LINE__, &
+!            file=__FILE__)) &
+!            return  ! bail out
 
-         call fld_list_add(num=fldsFrWav_num, fldlist=fldsFrWav, stdname="eastward_radiation_stress", shortname= "sxx")
-         call fld_list_add(num=fldsFrWav_num, fldlist=fldsFrWav, stdname="northward_radiation_stress",shortname= "syy")
-         call fld_list_add(num=fldsFrWav_num, fldlist=fldsFrWav, stdname="cross_radiation_stress",    shortname= "sxy")
+         call fld_list_add(num=fldsFrWav_num, fldlist=fldsFrWav, stdname="eastward_wave_radiation_stress", shortname= "sxx")
+         call fld_list_add(num=fldsFrWav_num, fldlist=fldsFrWav, stdname="northward_wave_radiation_stress",shortname= "syy")
+         call fld_list_add(num=fldsFrWav_num, fldlist=fldsFrWav, stdname="eastward_northward_wave_radiation_stress",    shortname= "sxy")
 
         write(info,*) subname,' --- Passed--- '
         call ESMF_LogWrite(info, ESMF_LOGMSG_INFO, rc=dbrc)
